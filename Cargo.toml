@@ -10,3 +10,4 @@ csv = "1.2.1"
 tokio = { version = "1.0", features = ["full"] }
 sqlx = { version = "0.6", features = ["postgres", "runtime-tokio-rustls"]}
 serde = "1.0.162"
+dotenv = "0.15.0"
