@@ -1,7 +1,7 @@
 create table sets (
     number varchar not null,
     theme varchar,
-    subtheme varchar,
+    sub_theme varchar,
     year varchar,
     set_name varchar,
     minifigs integer,
@@ -9,8 +9,8 @@ create table sets (
     width integer,
     height integer,
     depth integer,
-    launch_date date,
-    exit_date date
+    launch_date varchar,
+    exit_date varchar 
 );
 
 create unique index set_number_idx on sets (number);
