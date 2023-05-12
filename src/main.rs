@@ -1,6 +1,5 @@
-use dotenv;
 use serde::Deserialize;
-use std::{error::Error};
+use std::error::Error;
 
 #[derive(Debug, Deserialize)]
 struct Set {
@@ -35,11 +34,11 @@ async fn create(set: &Set, pool: &sqlx::PgPool) -> Result<(), Box<dyn Error>> {
         .bind(&set.sub_theme)
         .bind(&set.year)
         .bind(&set.set_name)
-        .bind(&set.minifigs)
-        .bind(&set.pieces)
-        .bind(&set.width)
-        .bind(&set.height)
-        .bind(&set.depth)
+        .bind(set.minifigs)
+        .bind(set.pieces)
+        .bind(set.width)
+        .bind(set.height)
+        .bind(set.depth)
         .bind(&set.launch_date)
         .bind(&set.exit_date)
         .execute(pool)
@@ -55,7 +54,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let pool = sqlx::postgres::PgPool::connect(&url).await.expect("something fucked");
 
     // create database migration
-    sqlx::migrate!("./migrations").run(&pool).await?;
+    //sqlx::migrate!("./migrations").run(&pool).await?;
     let mut data: Vec<Set> = vec![];
 
     // parse csv into vector
